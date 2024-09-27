@@ -1,29 +1,17 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { join } from 'path';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
-        type: 'postgres',
-        host: configService.get('DB_HOST'),
-        port: +configService.get('DB_PORT'),
-        username: configService.get('DB_USERNAME'),
-        password: configService.get('DB_PASSWORD'),
-        database: configService.get('DB_NAME'), // "data" o'rniga "database" deb yozish kerak
-        entities: [join(process.cwd(), 'dist/**/*.entity.js')], // ".entity.js" deb yozilishi kerak
-        synchronize: true
-      })
-    })
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      url: process.env.DATABASE_URL, // Render.com'dan olingan DB URL
+      autoLoadEntities: true,
+      synchronize: true, // Faol holatda, TypeORM barcha o'zgarishlarni ma'lumotlar bazasiga sinxronlashtiradi (produksiyaga chiqarishda false'ga o'zgartirish tavsiya etiladi)
+    }),
+    UserModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
+
