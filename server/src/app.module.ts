@@ -9,13 +9,15 @@ import { AppService } from './app.service';
 
 
 
+
+
 @Module({
   imports: [
     MongooseModule.forRoot('mongodb+srv://baliq:baliq@cluster0.b3ghd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'), // Mongoose ulanish muvaffaqiyatli
     UserModule, AuthModule,
   ],
-  controllers: [AppController], // Barcha controller'larni qo'shing
-  providers: [AppService],
+  controllers: [AppController, ], // Barcha controller'larni qo'shing
+  providers: [AppService, ],
 })
 export class AppModule {}
 
