@@ -9,11 +9,11 @@ export class AuthController {
 
   @Post('register')
   async register(@Body() registerUserDto: RegisterUserDto) {
-    return this.authService.register(registerUserDto.username, registerUserDto.password);
+    return this.authService.register(registerUserDto.username, registerUserDto.email, registerUserDto.password,);
   }
 
   @Post('login')
   async login(@Body() loginUserDto: LoginUserDto) {
-    return this.authService.login(loginUserDto.username, loginUserDto.password);
+    return this.authService.login(loginUserDto.email,  loginUserDto.password);
   }
 }

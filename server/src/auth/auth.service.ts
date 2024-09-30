@@ -12,16 +12,16 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async register(username: string, password: string): Promise<User> {
+  async register(username: string, email: string,  password: string): Promise<User> {
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new this.userModel({ username, password: hashedPassword });
+    const newUser = new this.userModel({ username, email, password: hashedPassword });
     return newUser.save();
   }
 
-  async login(username: string, password: string): Promise<any> {
-    const user = await this.userModel.findOne({ username });
+  async login(email: string, password: string): Promise<any> {
+    const user = await this.userModel.findOne({ email });
     if (user && (await bcrypt.compare(password, user.password))) {
-      const payload = { username: user.username, sub: user._id };
+      const payload = { email: user.email, sub: user._id };
       return {
         access_token: this.jwtService.sign(payload),
       };
