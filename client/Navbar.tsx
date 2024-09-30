@@ -1,6 +1,9 @@
 // src/app/components/Navbar.tsx
+"use client";
+import { useState } from "react";
 
 const Navbar: React.FC = () => {
+    const[se, set] = useState(false)
     return (
       <nav>
         <ul className="navbar">
