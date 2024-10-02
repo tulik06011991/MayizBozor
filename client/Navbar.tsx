@@ -49,14 +49,14 @@ const SideBar: React.FC = () => {
       </div>
 
       {/* Header bar with buttons */}
-      <div className="p-4 w-full flex justify-between items-center ml-64">
+      <div className="p-4 w-full flex justify-between items-center bg-gray-500 ml-64">
         {/* Chap tomonda FaBars */}
         <button onClick={toggleSidebar} className="focus:outline-none">
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
 
         {/* O'ng tomonda Mahsulot qo'shish tugmasi */}
-        <Link href="/register">
+        <Link href="/register" className="border-blue-500 bg-blue-800 text-white rounded">
           <button className="flex items-center bg-transparent py-2 px-4 rounded hover:bg-blue-600 hover:text-white focus:outline-none active:bg-blue-800">
             <FaPlus className="mr-2" size={24} />
             Mahsulot qo'shish
