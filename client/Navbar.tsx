@@ -64,7 +64,7 @@ const SideBar: React.FC = () => {
         {/* O'ng tomonda FaPlus va "Mahsulot qo'shish" ko'k tugmada */}
         <button
           onClick={addProduct}
-          className="border border-blue-600 text-blue-600 flex items-center bg-transparent py-2 px-4 rounded hover:bg-blue-600 hover:text-white focus:outline-none active:bg-blue-800"
+          className="  flex items-center bg-transparent py-2 px-4 rounded hover:bg-blue-600 hover:text-white focus:outline-none active:bg-blue-800"
         >
           <FaPlus className="mr-2 " size={24} />
           Mahsulot qo'shish
