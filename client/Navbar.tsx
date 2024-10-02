@@ -57,10 +57,10 @@ const SideBar: React.FC = () => {
 
         {/* O'ng tomonda Mahsulot qo'shish tugmasi */}
         <Link href="/register" className="border-blue-500 bg-blue-800 text-white rounded">
-          <button className="flex items-center bg-transparent py-2 px-4 rounded hover:bg-blue-600 hover:text-white focus:outline-none active:bg-blue-800">
-            <FaPlus className="mr-2" size={24} />
-            Mahsulot qo'shish
-          </button>
+            <button className="flex items-center bg-transparent py-2 px-4 rounded hover:bg-blue-600 hover:text-white focus:outline-none active:bg-blue-800">
+                <FaPlus className="mr-2" size={24} />
+                Mahsulot qo'shish
+            </button>
         </Link>
       </div>
     </div>
