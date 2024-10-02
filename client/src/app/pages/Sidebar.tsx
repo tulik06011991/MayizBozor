@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { FaHome, FaInfoCircle, FaServicestack, FaPhone, FaBars } from "react-icons/fa"; // Import icons from react-icons
+import { FaHome, FaInfoCircle, FaServicestack, FaPhone, FaBars, FaPlusCircle, FaListAlt } from "react-icons/fa";
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +10,7 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <div className="flex w-full  bg-gray-200 shadow">
+    <div className="flex w-full bg-gray-200 shadow">
       {/* Sidebar for mobile */}
       <div
         className={`fixed top-0 left-0 h-full transition-transform transform md:hidden ${
@@ -23,7 +23,9 @@ const Sidebar: React.FC = () => {
         >
           ✕
         </button>
-        <h2 className="text-2xl font-semibold mb-4 shadow ">Menu</h2>
+        <h2 className="text-2xl font-semibold mb-4 shadow flex items-center">
+           Menu
+        </h2>
         <ul className="space-y-4">
           <li>
             <a
@@ -58,6 +60,10 @@ const Sidebar: React.FC = () => {
             </a>
           </li>
         </ul>
+        {/* Mahsulot qo'shish button */}
+        {/* <button className="bg-green-500 mt-6 w-full py-2 text-md font-semibold flex items-center rounded justify-center hover:bg-green-600">
+          <FaPlusCircle className="mr-2" /> Add Product
+        </button> */}
       </div>
 
       {/* Overlay for mobile */}
@@ -69,8 +75,10 @@ const Sidebar: React.FC = () => {
       )}
 
       {/* Navbar for larger screens */}
-      <div className="hidden md:flex w-full bg-gray-700 shadow  p-6 text-white justify-between items-center">
-        <h2 className="text-2xl font-semibold">Menu</h2>
+      <div className="hidden md:flex w-full bg-gray-700 shadow p-6 text-white justify-between items-center">
+        <h2 className="text-2xl font-semibold flex items-center">
+           Menu
+        </h2>
         <ul className="flex space-x-8 mr-0">
           <li>
             <a
@@ -105,15 +113,22 @@ const Sidebar: React.FC = () => {
             </a>
           </li>
         </ul>
+        {/* Mahsulot qo'shish button for larger screens */}
+        <button className="bg-green-500 py-2 px-4 text-lg font-semibold rounded  flex items-center hover:bg-green-600">
+          <FaPlusCircle className="mr-2" /> Add Product
+        </button>
       </div>
 
       {/* Main Content */}
-      
-        {/* FaBars button only visible on mobile */}
-        <button className="md:hidden mb-6 mt-6 ml-2" onClick={toggleSidebar}>
+      {/* FaBars button and Add Product for mobile view */}
+      <div className="md:hidden flex justify-between items-center w-full p-4">
+        <button onClick={toggleSidebar}>
           <FaBars style={{ fontSize: "25px" }} />
         </button>
-      
+        <button className="bg-green-500 py-2 px-4 text-lg text-white font-semibold flex  rounded items-center hover:bg-green-600">
+          <FaPlusCircle className="mr-2" /> Add Product
+        </button>
+      </div>
     </div>
   );
 };
