@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Sidebar from "./pages/Sidebar";
+import Sidebar from "./Sidebar";
+import pages1 from '.'
 
 
 
@@ -40,6 +41,7 @@ export default function RootLayout({
       >
    
        <Sidebar/>
+      
         {children}
       </body>
     </html>

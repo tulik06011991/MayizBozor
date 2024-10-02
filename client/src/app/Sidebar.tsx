@@ -1,6 +1,8 @@
 "use client";
+
 import React, { useState } from "react";
-import { FaHome, FaInfoCircle, FaServicestack, FaPhone, FaBars, FaPlusCircle, FaListAlt } from "react-icons/fa";
+import { FaHome, FaInfoCircle, FaServicestack, FaPhone, FaBars, FaPlusCircle } from "react-icons/fa";
+import Link from "next/link"; // Link ni import qilamiz
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,46 +26,30 @@ const Sidebar: React.FC = () => {
           ✕
         </button>
         <h2 className="text-2xl font-semibold mb-4 shadow flex items-center">
-           Menu
+          Menu
         </h2>
         <ul className="space-y-4">
           <li>
-            <a
-              href="#home"
-              className="text-lg flex items-center hover:text-gray-300"
-            >
+            <Link href="#home" className="text-lg flex items-center hover:text-gray-300">
               <FaHome className="mr-2" /> Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#about"
-              className="text-lg flex items-center hover:text-gray-300"
-            >
+            <Link href="#about" className="text-lg flex items-center hover:text-gray-300">
               <FaInfoCircle className="mr-2" /> About
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#services"
-              className="text-lg flex items-center hover:text-gray-300"
-            >
+            <Link href="#services" className="text-lg flex items-center hover:text-gray-300">
               <FaServicestack className="mr-2" /> Services
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#contact"
-              className="text-lg flex items-center hover:text-gray-300"
-            >
+            <Link href="#contact" className="text-lg flex items-center hover:text-gray-300">
               <FaPhone className="mr-2" /> Contact
-            </a>
+            </Link>
           </li>
         </ul>
-        {/* Mahsulot qo'shish button */}
-        {/* <button className="bg-green-500 mt-6 w-full py-2 text-md font-semibold flex items-center rounded justify-center hover:bg-green-600">
-          <FaPlusCircle className="mr-2" /> Add Product
-        </button> */}
       </div>
 
       {/* Overlay for mobile */}
@@ -77,46 +63,41 @@ const Sidebar: React.FC = () => {
       {/* Navbar for larger screens */}
       <div className="hidden md:flex w-full bg-gray-700 shadow p-6 text-white justify-between items-center">
         <h2 className="text-2xl font-semibold flex items-center">
-           Menu
+          Menu
         </h2>
         <ul className="flex space-x-8 mr-0">
           <li>
-            <a
-              href="#home"
-              className="text-lg flex items-center hover:text-gray-300"
-            >
+            <Link href="#home" className="text-lg flex items-center hover:text-gray-300">
               <FaHome className="mr-2" /> Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#about"
-              className="text-lg flex items-center hover:text-gray-300"
-            >
+            <Link href="/
+            " className="text-lg flex items-center hover:text-gray-300">
               <FaInfoCircle className="mr-2" /> About
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#services"
-              className="text-lg flex items-center hover:text-gray-300"
-            >
+            <Link href="#services" className="text-lg flex items-center hover:text-gray-300">
               <FaServicestack className="mr-2" /> Services
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#contact"
-              className="text-lg flex items-center hover:text-gray-300"
-            >
+            <Link href="#contact" className="text-lg flex items-center hover:text-gray-300">
               <FaPhone className="mr-2" /> Contact
-            </a>
+            </Link>
           </li>
         </ul>
         {/* Mahsulot qo'shish button for larger screens */}
-        <button className="bg-green-500 py-2 px-4 text-lg font-semibold rounded  flex items-center hover:bg-green-600">
-          <FaPlusCircle className="mr-2" /> Add Product
-        </button>
+        <Link href="./index
+
+
+        
+        ">
+          <button className="bg-green-500 py-2 px-4 text-lg font-semibold rounded flex items-center hover:bg-green-600">
+            <FaPlusCircle className="mr-2" /> Add Product
+          </button>
+        </Link>
       </div>
 
       {/* Main Content */}
@@ -125,9 +106,14 @@ const Sidebar: React.FC = () => {
         <button onClick={toggleSidebar}>
           <FaBars style={{ fontSize: "25px" }} />
         </button>
-        <button className="bg-green-500 py-2 px-4 text-lg text-white font-semibold flex  rounded items-center hover:bg-green-600">
-          <FaPlusCircle className="mr-2" /> Add Product
-        </button>
+        <Link href="./index
+
+        
+        ">
+          <button className="bg-green-500 py-2 px-4 text-lg text-white font-semibold flex rounded items-center hover:bg-green-600">
+            <FaPlusCircle className="mr-2" /> Add Product
+          </button>
+        </Link>
       </div>
     </div>
   );
