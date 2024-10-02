@@ -1,12 +1,17 @@
 "use client";
 import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaPlus } from "react-icons/fa";
 
 const SideBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
+  };
+
+  // Funksiya: mahsulot qo'shish
+  const addProduct = () => {
+    alert("Mahsulot kiritish jarayoni boshlanmoqda!"); // Bu yerda mahsulot qo'shish logikasi bo'lishi kerak
   };
 
   return (
@@ -45,16 +50,30 @@ const SideBar: React.FC = () => {
             </a>
           </li>
         </ul>
+
+        {/* Mahsulot qo'shish tugmasi */}
+        <div className="mt-10 px-4">
+          <button
+            onClick={addProduct}
+            className="flex items-center justify-center w-full py-2 px-4 bg-green-600 rounded hover:bg-green-700 focus:outline-none"
+          >
+            <FaPlus className="mr-2" size={16} /> Mahsulot Qo'shish
+          </button>
+        </div>
       </div>
 
-      {/* Sidebar Toggling Button */}
-      <div className="p-4">
+      {/* Header bar with buttons */}
+      <div className="p-4 w-full flex justify-between items-center bg-gray-100">
+        {/* Chap tomonda FaBars */}
         <button onClick={toggleSidebar} className="focus:outline-none">
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
-      </div>
 
-      
+        {/* O'ng tomonda FaPlus */}
+        <button onClick={addProduct} className="focus:outline-none">
+          <FaPlus size={24} />
+        </button>
+      </div>
     </div>
   );
 };
