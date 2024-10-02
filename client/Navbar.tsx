@@ -15,7 +15,7 @@ const SideBar: React.FC = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex bg-gray-500 shadow">
       {/* Sidebar */}
       <div
         className={`fixed top-0 left-0 h-full w-64 bg-blue-900 text-white transform ${
@@ -51,27 +51,23 @@ const SideBar: React.FC = () => {
           </li>
         </ul>
 
-        {/* Mahsulot qo'shish tugmasi */}
-        <div className="mt-10 px-4">
-          <button
-            onClick={addProduct}
-            className="flex items-center justify-center w-full py-2 px-4 bg-green-600 rounded hover:bg-green-700 focus:outline-none"
-          >
-            <FaPlus className="mr-2" size={16} /> Mahsulot Qo'shish
-          </button>
-        </div>
+        
       </div>
 
       {/* Header bar with buttons */}
-      <div className="p-4 w-full flex justify-between items-center bg-gray-100">
+      <div className="p-4 w-full flex justify-between items-center  ml-64">
         {/* Chap tomonda FaBars */}
         <button onClick={toggleSidebar} className="focus:outline-none">
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
 
-        {/* O'ng tomonda FaPlus */}
-        <button onClick={addProduct} className="focus:outline-none">
-          <FaPlus size={24} />
+        {/* O'ng tomonda FaPlus va "Mahsulot qo'shish" ko'k tugmada */}
+        <button
+          onClick={addProduct}
+          className="border border-blue-600 text-blue-600 flex items-center bg-transparent py-2 px-4 rounded hover:bg-blue-600 hover:text-white focus:outline-none active:bg-blue-800"
+        >
+          <FaPlus className="mr-2 " size={24} />
+          Mahsulot qo'shish
         </button>
       </div>
     </div>
