@@ -1,17 +1,13 @@
-"use client";
+"use client"; // Agar siz 'app' papkasidan foydalansangiz
 import React, { useState } from "react";
 import { FaBars, FaTimes, FaPlus } from "react-icons/fa";
+import Link from 'next/link';
 
 const SideBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
-  };
-
-  // Funksiya: mahsulot qo'shish
-  const addProduct = () => {
-    alert("Mahsulot kiritish jarayoni boshlanmoqda!"); // Bu yerda mahsulot qo'shish logikasi bo'lishi kerak
   };
 
   return (
@@ -30,45 +26,42 @@ const SideBar: React.FC = () => {
         </div>
         <ul className="mt-8 space-y-4 px-4">
           <li>
-            <a href="#" className="block py-2 px-4 rounded hover:bg-blue-700">
+            <Link href="/" className="block py-2 px-4 rounded hover:bg-blue-700">
               Dashboard
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="block py-2 px-4 rounded hover:bg-blue-700">
+            <Link href="/profile" className="block py-2 px-4 rounded hover:bg-blue-700">
               Profile
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="block py-2 px-4 rounded hover:bg-blue-700">
+            <Link href="/settings" className="block py-2 px-4 rounded hover:bg-blue-700">
               Settings
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="block py-2 px-4 rounded hover:bg-blue-700">
+            <Link href="/logout" className="block py-2 px-4 rounded hover:bg-blue-700">
               Logout
-            </a>
+            </Link>
           </li>
         </ul>
-
-        
       </div>
 
       {/* Header bar with buttons */}
-      <div className="p-4 w-full flex justify-between items-center  ml-64">
+      <div className="p-4 w-full flex justify-between items-center ml-64">
         {/* Chap tomonda FaBars */}
         <button onClick={toggleSidebar} className="focus:outline-none">
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
 
-        {/* O'ng tomonda FaPlus va "Mahsulot qo'shish" ko'k tugmada */}
-        <button
-          onClick={addProduct}
-          className="  flex items-center bg-transparent py-2 px-4 rounded hover:bg-blue-600 hover:text-white focus:outline-none active:bg-blue-800"
-        >
-          <FaPlus className="mr-2 " size={24} />
-          Mahsulot qo'shish
-        </button>
+        {/* O'ng tomonda Mahsulot qo'shish tugmasi */}
+        <Link href="/register">
+          <button className="flex items-center bg-transparent py-2 px-4 rounded hover:bg-blue-600 hover:text-white focus:outline-none active:bg-blue-800">
+            <FaPlus className="mr-2" size={24} />
+            Mahsulot qo'shish
+          </button>
+        </Link>
       </div>
     </div>
   );
