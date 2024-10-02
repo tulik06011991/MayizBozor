@@ -54,11 +54,7 @@ const SideBar: React.FC = () => {
         </button>
       </div>
 
-      {/* Main Content */}
-      <div className="flex-1 p-10">
-        <h1 className="text-2xl font-bold">Main Content</h1>
-        <p>This is where your main content will appear.</p>
-      </div>
+      
     </div>
   );
 };
