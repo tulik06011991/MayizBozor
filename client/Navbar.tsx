@@ -1,90 +1,66 @@
-// src/app/components/Navbar.tsx
 "use client";
-import { useState } from 'react';
-import Link from 'next/link';
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import React, { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
-const Navbar: React.FC = () => {
-  const [navOpen, setNavOpen] = useState(false);
+const SideBar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleNav = () => {
-    setNavOpen(!navOpen);
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
-    <nav className="fixed w-full bg-white shadow-md">
-      <div className="container mx-auto flex justify-between items-center p-4">
-        <div className="text-2xl font-bold text-gray-800">
-          <Link href="/">BrandName</Link>
-        </div>
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 font-medium text-gray-700">
-          <li>
-            <Link href="/" className="hover:text-blue-500">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" className="hover:text-blue-500">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link href="/services" className="hover:text-blue-500">
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className="hover:text-blue-500">
-              Contact
-            </Link>
-          </li>
-        </ul>
-
-        {/* Mobile Menu Button */}
-        <div className="md:hidden" onClick={toggleNav}>
-          {!navOpen ? (
-            <AiOutlineMenu className="text-3xl text-gray-700" />
-          ) : (
-            <AiOutlineClose className="text-3xl text-gray-700" />
-          )}
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
+    <div className="flex">
+      {/* Sidebar */}
       <div
-        className={`md:hidden flex flex-col items-center bg-white py-6 shadow-md transition-all duration-300 ease-in-out ${
-          navOpen ? 'block' : 'hidden'
-        }`}
+        className={`fixed top-0 left-0 h-full w-64 bg-blue-900 text-white transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 ease-in-out z-50`}
       >
-        <ul className="space-y-6 text-lg font-medium text-gray-700">
+        <div className="flex items-center justify-between px-4 py-3 bg-blue-800">
+          <h1 className="text-lg font-bold">Sidebar</h1>
+          <button onClick={toggleSidebar} className="focus:outline-none">
+            <FaTimes size={24} />
+          </button>
+        </div>
+        <ul className="mt-8 space-y-4 px-4">
           <li>
-            <Link href="/" onClick={() => setNavOpen(false)}>
-              Home
-            </Link>
+            <a href="#" className="block py-2 px-4 rounded hover:bg-blue-700">
+              Dashboard
+            </a>
           </li>
           <li>
-            <Link href="/about" onClick={() => setNavOpen(false)}>
-              About
-            </Link>
+            <a href="#" className="block py-2 px-4 rounded hover:bg-blue-700">
+              Profile
+            </a>
           </li>
           <li>
-            <Link href="/services" onClick={() => setNavOpen(false)}>
-              Services
-            </Link>
+            <a href="#" className="block py-2 px-4 rounded hover:bg-blue-700">
+              Settings
+            </a>
           </li>
           <li>
-            <Link href="/contact" onClick={() => setNavOpen(false)}>
-              Contact
-            </Link>
+            <a href="#" className="block py-2 px-4 rounded hover:bg-blue-700">
+              Logout
+            </a>
           </li>
         </ul>
       </div>
-    </nav>
+
+      {/* Sidebar Toggling Button */}
+      <div className="p-4">
+        <button onClick={toggleSidebar} className="focus:outline-none">
+          {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+        </button>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 p-10">
+        <h1 className="text-2xl font-bold">Main Content</h1>
+        <p>This is where your main content will appear.</p>
+      </div>
+    </div>
   );
 };
 
-export default Navbar;
-
-  
+export default SideBar;
